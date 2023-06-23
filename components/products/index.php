@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
                 <th class="text-center px-6 py-3 bg-gray-50 text-left font-medium text-gray-500 uppercase tracking-wider">ประเภทสินค้า</th>
                 <th class="text-center px-6 py-3 bg-gray-50 text-left font-medium text-gray-500 uppercase tracking-wider">ราคา</th>
                 <th class="text-center px-6 py-3 bg-gray-50 text-left font-medium text-gray-500 uppercase tracking-wider">จำนวน</th>
-                <th class="text-center px-6 py-3 bg-gray-50 text-left font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th class="text-center px-6 py-3 bg-gray-50 text-left font-medium text-gray-500 uppercase tracking-wider"></th>
             </tr>
         </thead>
         <tbody>
@@ -42,8 +42,8 @@ $result = mysqli_query($conn, $sql);
                     echo "<td>" . $row["product_price"] . "</td>";
                     echo "<td>" . $row["product_quantity"] . "</td>";
                     echo "<td>
-                                <a href='edit.php?id=" . $row["product_id"] . "' type='button' class='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded'>แก้ไข</a>
-                                <a href='#' type='button' onclick='return confirmDelete(" . $row['product_id'] . ")' class='bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded'>ลบ</a>
+                                <a href='/views/product/edit.php?id=" . $row["product_id"] . "' type='button' class='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded'>แก้ไข</a>
+                                <a href='#' type='button' onclick='return confirmDelete(" . $row['product_id'] . ", \"" . $row['product_name'] . "\")' class='bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded'>ลบ</a>
                               </td>";
                     echo "</tr>";
                     $index++;
@@ -57,8 +57,8 @@ $result = mysqli_query($conn, $sql);
 </div>
 
 <script>
-    function confirmDelete(id) {
-        if (confirm("Are you sure you want to delete this product?")) {
+    function confirmDelete(id, name) {
+        if (confirm(`คุณแน่ใจว่าต้องการลบ '${name}' หรือไม่ ?`)) {
             console.log('love', id)
             window.location.href = `/components/products/delete.php?id=${id}`
         }

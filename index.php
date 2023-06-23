@@ -14,6 +14,23 @@
 
     <?php include './components/layouts/navbar.php'; ?>
 
+    <div class="max-w-7xl mx-auto mt-20">
+        <nav>
+            <ul class="space-y-6">
+                <li>
+                    <a href="/views/product" class="bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">
+                        สินค้า
+                    </a>
+                </li>
+                <li>
+                    <a href="/views/state-welfare" class="bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium">
+                        สิทธิสวัสดิการแห่งรัฐ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
 </body>
 
 </html>
